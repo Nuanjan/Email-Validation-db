@@ -1,0 +1,22 @@
+{% extends 'index.html' %}{% block content %}
+<div class="w-50 mx-auto mt-3 p-3">
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <ul class="flashes">
+    {% for category, message in messages %}
+    <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %} {% endwith %}
+</div>
+<div class="border border-dark w-50 mx-auto p-3">
+  <h2>Email Addresses Entered:</h2>
+  {% for email in all_emails%}
+  <p>
+    {{email.email}} {{email.created_at}}
+    <a href="/delete/{{email.id}}">Delete</a>
+  </p>
+  {% endfor %}
+</div>
+<a href="/">HOME</a>
+{% endblock %}

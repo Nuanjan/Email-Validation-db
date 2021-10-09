@@ -1,0 +1,13 @@
+{% extends 'index.html' %}{% block content %}
+<div class="border border-dark w-50 mx-auto p-3">
+  <h2>Email Addresses Entered:</h2>
+  {% for email in all_emails%}
+  <p>
+    {{email.email}} {{email.created_at}}<a href="/delete/{{email.id}}"
+      >Delete</a
+    >
+  </p>
+
+  {% endfor %}
+</div>
+{% endblock %}
